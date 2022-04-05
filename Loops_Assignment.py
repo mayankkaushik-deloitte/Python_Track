@@ -19,7 +19,7 @@ class Loops:
         print("The triangle is : ")
         for i in range(rows):
             for j in range(cols):
-                print(arr[i][j], end='')
+                print(str(arr[i][j]) + " ", end='')
             print()
     def first_pattern(self):
         arr = [[0 for i in range(self.val)] for j in range(self.val)]
@@ -60,7 +60,7 @@ class Loops:
         for i in range(self.val):
             for j in range(self.val):
                 if i == 0:
-                    arr[i][j] = '*'
+                    arr[i][j] = 'a*'
                 if i == j:
                     arr[i][j] = '*'
                 if j == self.val - 1:
