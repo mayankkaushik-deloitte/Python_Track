@@ -34,15 +34,36 @@ class PairsPossible(StringClass):
         for i in range(len(self.arr)):
             print(self.arr[i] + " ", end='')
 
+
 class SearchCommonElements:
     StringClassString = ""
-    PairPossibleString = 
-    def __init__(self, ):
-        pass
+    PairPossibleString = ""
+
+    arr = []
+    def __init__(self, a, b):
+        self.StringClassString = a
+        self.PairPossibleString = b
+
     def common(self):
+        dict = {}
+        for char in self.StringClassString:
+            if char in dict:
+                continue
+            else:
+                dict[char] = 1;
+        for char in self.PairPossibleString:
+            if char in dict:
+                self.arr.append(char)
+
+    def printList(self):
+        print(self.arr)
+
+
 StringObj = StringClass()
 print(StringObj.length())
 print(StringObj.convert())
 pairs = PairsPossible()
 pairs.storeList()
 pairs.printList()
+third = SearchCommonElements(StringObj.s, pairs.s)
+third.printList()
