@@ -45,12 +45,36 @@ class Loops:
             print()
 
     def second_pattern(self):
-        
+        row = self.val
+        for i in range(row):
+            for j in range(row - i):
+                print(' ', end='')
+            for j in range(2 * i + 1):
+                if j == 0 or j == 2 * i or i == row - 1:
+                    print('*', end='')
+                else:
+                    print(' ', end='')
+            print()
+    def thrid_pattern(self):
+        arr = [[" " for i in range(self.val)] for j in range(self.val)]
+        for i in range(self.val):
+            for j in range(self.val):
+                if i == 0:
+                    arr[i][j] = '*'
+                if i == j:
+                    arr[i][j] = '*'
+                if j == self.val - 1:
+                    arr[i][j] = '*'
+        for i in range(self.val):
+            for j in range(self.val):
+                print(arr[i][j], end = '')
+            print()
 
 
 
-LoopOBJ = Loops(5)
+LoopOBJ = Loops(9)
 # Pascals part
 LoopOBJ.print_pascals_triangle()
 LoopOBJ.first_pattern()
-
+LoopOBJ.second_pattern()
+LoopOBJ.thrid_pattern()
