@@ -57,6 +57,7 @@ class SearchCommonElements:
         for char in self.PairPossibleString:
             if char in dict:
                 self.arr.append(char)
+                dict.pop(char)
 
     def printList(self):
         print("The common elements are :: ")
@@ -85,7 +86,9 @@ class UnEqualSumPairs(PairsPossible):
 
 
 StringObj = StringClass()
+print("The length of the string is :: ")
 print(StringObj.length())
+print("The string after conversion looks like this :: ")
 print(StringObj.convert())
 pairs = PairsPossible()
 pairs.storeList()
