@@ -33,7 +33,7 @@ class PairsPossible(StringClass):
     def printList(self):
         for i in range(len(self.arr)):
             print(self.arr[i] + " ", end='')
-
+        print()
 
 class SearchCommonElements:
     StringClassString = ""
@@ -55,8 +55,13 @@ class SearchCommonElements:
             if char in dict:
                 self.arr.append(char)
 
+        for key, val in dict.items():
+            print(key+ " ")
+
     def printList(self):
+        print("third")
         print(self.arr)
+
 
 
 StringObj = StringClass()
@@ -66,4 +71,5 @@ pairs = PairsPossible()
 pairs.storeList()
 pairs.printList()
 third = SearchCommonElements(StringObj.s, pairs.s)
+third.common()
 third.printList()
