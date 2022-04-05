@@ -31,15 +31,18 @@ class PairsPossible(StringClass):
                 self.arr.append(self.s[i] + self.s[j])
 
     def printList(self):
+        print("The possible pairs are :: ")
         for i in range(len(self.arr)):
             print(self.arr[i] + " ", end='')
         print()
+
 
 class SearchCommonElements:
     StringClassString = ""
     PairPossibleString = ""
 
     arr = []
+
     def __init__(self, a, b):
         self.StringClassString = a
         self.PairPossibleString = b
@@ -55,13 +58,30 @@ class SearchCommonElements:
             if char in dict:
                 self.arr.append(char)
 
-        for key, val in dict.items():
-            print(key+ " ")
-
     def printList(self):
-        print("third")
+        print("The common elements are :: ")
         print(self.arr)
 
+
+class UnEqualSumPairs(PairsPossible):
+    arr = PairsPossible.arr
+    def __init__(self):
+        pass
+    def countPairs(self):
+        # print(self.arr)
+        count = 0
+        dict = {}
+        for i in range(len(self.arr)):
+            sum = int(self.arr[i][0]) + int(self.arr[i][1])
+            # print(sum)
+            if str(sum) in dict:
+                dict[str(sum)] = dict[str(sum)] + 1
+            else:
+                dict[str(sum)] = 1
+        for key, val in dict.items():
+            if val == 1:
+                count = count + 1
+        return count
 
 
 StringObj = StringClass()
@@ -73,3 +93,5 @@ pairs.printList()
 third = SearchCommonElements(StringObj.s, pairs.s)
 third.common()
 third.printList()
+fourth = UnEqualSumPairs()
+print("The pairs are : " + str(fourth.countPairs()))
