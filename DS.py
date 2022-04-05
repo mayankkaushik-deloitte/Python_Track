@@ -45,17 +45,23 @@ class DS:
             "salary": 8000,
 
             "city": "New york"
-
         }
-        for key in sampleDict.keys():
-            if key == "city":
-                key = "location"
+        sampleDict["location"] = sampleDict.pop("city")
         print(sampleDict)
+    def convertToList(self):
+        dict = {"HuEx" : [1, 3, 4], "is": [7, 6], "best": [4, 5]}
+        arr = []
+        for key, val in dict.items():
+            arr.append([key])
+            for each in val:
+                arr[len(arr) - 1].append(each)
+        print(arr)
 
 obj = DS()
-# obj.duplicates()
-# obj.mergeList()
-# obj.appendNested()
-# obj.mapValues()
-# obj.mergeDicts()
+obj.duplicates()
+obj.mergeList()
+obj.appendNested()
+obj.mapValues()
+obj.mergeDicts()
 obj.renameDict()
+obj.convertToList()
