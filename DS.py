@@ -23,8 +23,39 @@ class DS:
         list1 = ["a", "b", ["c", ["d", "e", ["f", "g"], "k"], "l"], "m", "n"]
         list1[2][1][2].extend(["h", "i", "j"]);
         print(list1)
+    def mapValues(self):
+        Keys = ["Ten", "Twenty", "Thirty"]
+        Values = [10,20,30]
+        dict = {}
+        for i in range(len(Keys)):
+            dict[Keys[i]] = Values[i]
+        print(dict)
+    def mergeDicts(self):
+        dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+        dict2 = {'Thirty': 30, 'Fourty': 40, 'Fifty': 50}
+        dict1.update(dict2)
+        print(dict1)
+    def renameDict(self):
+        sampleDict = {
+
+            "name": "Kelly",
+
+            "age": 25,
+
+            "salary": 8000,
+
+            "city": "New york"
+
+        }
+        for key in sampleDict.keys():
+            if key == "city":
+                key = "location"
+        print(sampleDict)
 
 obj = DS()
 # obj.duplicates()
 # obj.mergeList()
-obj.appendNested()
+# obj.appendNested()
+# obj.mapValues()
+# obj.mergeDicts()
+obj.renameDict()
