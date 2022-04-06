@@ -9,11 +9,9 @@ class MapAndLambda:
         lambdaAns = lambda a,b,c,x : a * x * x + b * x + c
         print(lambdaAns(a,b,c,x))
     def second_problem(self):
-        lst1 = ["Alaska", "Alabama", "Arizona", "Arkansas", "Colorado", "Montana", "Nevada"]
-        ans = list(map(lambda s : s if s.count('A') and s.count('a') else "", lst1))
-        for each in ans:
-            if each == '':
-                ans.remove(each)
+        lst1 = ["Alaska", "Alabama", "Arizona", "Arkansas", "Colorado", "Montana", "Nevada","asdasd"]
+        ans = list(map(lambda s : (s.count('A'), s.count('a')), lst1))
+
         print(ans)
 
 
