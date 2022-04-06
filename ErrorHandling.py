@@ -21,27 +21,20 @@ def calc(str):
             raise FormulaError(len(arr),arr[1], 0)
     except FormulaError:
         print("The length of input isn't quite right!")
-    finally:
-        print("The length is alright.")
 
     try:
-        if arr[1] != '+' or arr[1] != '-':
+        if arr[1] != '+' and arr[1] != '-':
             raise FormulaError(len(arr),arr[1], 0)
     except FormulaError as e:
             print(e)
     try:
         operand1 = float(arr[0])
         operand2 = float(arr[2])
-    except ValueError as e:
-        raise FormulaError(len(arr), arr[1], 1)
-    finally:
         if arr[1] == '+':
             print(operand1 + operand2)
-        else:
+        elif arr[1] == '-':
             print(operand1 - operand2)
+    except ValueError as e:
+        print(e)
 
-
-
-
-
-calc("1 * 2")
+calc("2 * 3")
