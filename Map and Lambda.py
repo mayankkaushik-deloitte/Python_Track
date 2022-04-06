@@ -8,8 +8,16 @@ class MapAndLambda:
         x = int(input("Enter the value of x :: "))
         lambdaAns = lambda a,b,c,x : a * x * x + b * x + c
         print(lambdaAns(a,b,c,x))
+    def second_problem(self):
+        lst1 = ["Alaska", "Alabama", "Arizona", "Arkansas", "Colorado", "Montana", "Nevada"]
+        ans = list(map(lambda s : s if s.count('A') and s.count('a') else "", lst1))
+        for each in ans:
+            if each == '':
+                ans.remove(each)
+        print(ans)
 
 
 
 obj = MapAndLambda()
-obj.first_problem()
+# obj.first_problem()
+obj.second_problem()
