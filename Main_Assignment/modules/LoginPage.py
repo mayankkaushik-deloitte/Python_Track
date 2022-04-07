@@ -1,6 +1,7 @@
 from Main_Assignment.modules.movieList import MovieList
 from Main_Assignment.modules.userList import UserList
 from Main_Assignment.modules.adminCRUD import Admin
+from Main_Assignment.modules.userPage import UserPage
 
 
 def user_login(movies: MovieList, users: UserList):
@@ -51,7 +52,7 @@ def user_login(movies: MovieList, users: UserList):
             for i in range(len(slots)):
                 print(f"{i + 1}. {slots[i][0]} has {slots[i][1]} seats")
             inp = int(input()) - 1
-            user.cancel_show(mv, slots[inp][0], int(input("No. of seats :: ")))
+            user.cancel_show(mv, str(slots[inp][0]) + "-" + str(slots[inp][1]) , int(input("No. of seats :: ")))
         elif inp == 3:
             user.give_user_rating(int(input("Give a number between 1 to 10 :: ")), mv)
             print("Avg movie rating = ", mv.get_user_rating())

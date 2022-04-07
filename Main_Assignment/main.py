@@ -19,7 +19,7 @@ while True:
             print(i)
     elif option == 2:
         register_user(movieObj, userObj)
-        for i in userObj.mlist.values():
+        for i in userObj.ulist.values():
             print(i)
     else:
         exit(0)

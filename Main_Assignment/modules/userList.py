@@ -1,4 +1,4 @@
-from Main_Assignment.modules.userPage import User
+from Main_Assignment.modules.userPage import UserPage
 
 
 class UserList:
@@ -14,5 +14,5 @@ class UserList:
         except:
             print("user not found, deletion unsuccessful")
 
-    def addUser(self, user: User):
+    def add_user(self, user: UserPage):
         self.ulist[user.details['email']] = user

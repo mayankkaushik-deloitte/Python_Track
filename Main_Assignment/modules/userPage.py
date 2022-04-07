@@ -5,7 +5,6 @@ class UserPage:
     def __init__(self, name, email, phone, age, password):
         self.details = {'name': name, 'email': email, 'phone': phone, 'age': age, 'password': password}
         self.bookings = dict()
-        # self.bookings[movie_name] = {'timeslot': seats}
 
     def show_all_bookings(self) -> list:
         res = list(self.bookings.keys())
@@ -14,14 +13,23 @@ class UserPage:
         return res
 
     def cancel_show(self, movie: Movie, timing: str, seats: int):
+        print(self.bookings)
         title = movie.movie_details['title']
+        if title not in self.bookings:
+            print(f"No booking of {title} movie")
+            return
+        if timing not in self.bookings[title]:
+            print(f"You have no booking of {title} at {timing} slot")
+            return
+
         if seats > self.bookings[title][timing]:
-            print("Less bookings!")
+            print("You are trying to cancel more seats than you have booked")
         else:
             self.bookings[title][timing] -= seats
             movie.time_slot[timing] += seats
             if self.bookings[title][timing] == 0: self.bookings[title].pop(timing)
             if len(self.bookings[title]) == 0: self.bookings.pop(title)
+            print("Cancellation successful")
 
     def book_show(self, movie: Movie, timing: str, seats: int):
         if movie.time_slot[timing] >= seats:
@@ -34,6 +42,7 @@ class UserPage:
                     self.bookings[title][timing] = seats
             else:
                 self.bookings[title] = {title: seats}
+            print(seats, "seats have been booked!")
         else:
             print("Enough seats are not available!")
 
