@@ -70,7 +70,7 @@ def admin_login(movies: MovieList):
         print(e)
         return
     while True:
-        print("******Welcome Admin*******")
+        print("========================******Welcome Admin*******====================")
         print("1. Add new Movie")
         print("2. Edit movie")
         print("3. Delete Movie")
@@ -89,7 +89,7 @@ def admin_login(movies: MovieList):
 
 def login(movies: MovieList, users: UserList):
     while True:
-        print("****** Welcome to BookMyShow Login *******")
+        print("=======================****** Welcome to BookMyShow Login *******======================")
         print("1. Admin Login")
         print("2. User Login")
         print("3. Go Back")
