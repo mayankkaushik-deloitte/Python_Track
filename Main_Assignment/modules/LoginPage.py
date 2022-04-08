@@ -5,20 +5,20 @@ from Main_Assignment.modules.userPage import UserPage
 
 
 def user_login(movies: MovieList, users: UserList):
-    print("*** Welcome to User Login page")
+    print("************************** Welcome to User Login page *****************************")
     email = input("Email = ")
     password = input("Password = ")
     if email not in users.ulist.keys():
         print("No user present with this email address. Kindly go to the registration page")
         return
     if users.ulist[email].details['password'] != password:
-        print("Wrong password")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXX Wrong password XXXXXXXXXXXXXXXXXXXXXXXXX")
         return
 
-    print("Login successful")
+    print("***********************Login successful*********************")
     user = users.ulist[email]
 
-    print(f"Welcome {user.details['name']}")
+    print(f"***********************Welcome {user.details['name']}***********************")
     while True:
         lst = movies.get_movie_list()
         if len(lst) == 0:
@@ -61,6 +61,7 @@ def user_login(movies: MovieList, users: UserList):
 
 
 def admin_login(movies: MovieList):
+    #init object of Admin class
     admin = Admin()
     try:
         if not admin.login(input("Username = "), input("Password = ")):
@@ -76,13 +77,13 @@ def admin_login(movies: MovieList):
         print("4. Logout")
         ip = input()
         if ip == '1':
-            admin.add_movie(movies)
+            admin.add_movie(movies)#call add movie
         elif ip == '2':
-            admin.edit_movie(movies)
+            admin.edit_movie(movies)#call edit movie [Cannot edit title though]
         elif ip == '3':
-            admin.delete_movie(movies)
+            admin.delete_movie(movies)#call delete movie
         else:
-            admin.logout()
+            admin.logout()#call logout for admin
             return
 
 

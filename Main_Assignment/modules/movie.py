@@ -4,6 +4,7 @@ class Movie:
         self.makers = {'cast': cast, 'director': director}
         self.time_slot = dict()
         self.user_rating = []
+        #Calculate timings for each movie Objd
         cur, cnt = firstShow, 0
         while cur <= 24*60 and cnt < showCount:
             st, en = cur, cur+interval+length
