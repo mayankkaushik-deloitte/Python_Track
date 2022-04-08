@@ -3,6 +3,7 @@ class Movie:
         self.movie_details = {'title': title, 'genre': genre, 'len': length, 'rating': rating, 'lan': language}
         self.makers = {'cast': cast, 'director': director}
         self.time_slot = dict()
+        self.user_rating = []
         cur, cnt = firstShow, 0
         while cur <= 24*60 and cnt < showCount:
             st, en = cur, cur+interval+length
@@ -24,3 +25,17 @@ class Movie:
 
     def get_timings(self) -> list:
         return [[k, v] for k, v in self.time_slot.items()]
+
+    def add_user_rating(self, rating: int):
+        self.user_rating.append(rating)
+        print(rating)
+        print(self.user_rating)
+
+    def get_user_rating(self) -> float:
+        ans = 0
+        try:
+            ans = round(sum(self.user_rating) / len(self.user_rating), 1)
+        except ZeroDivisionError:
+            print("No one rated this movie yet")
+        finally:
+            return ans

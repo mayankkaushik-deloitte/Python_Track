@@ -10,7 +10,7 @@ while True:
     print("******Welcome to BookMyShow*******")
     print("1. Login")
     print("2. Register new Account")
-    print("3. exit")
+    print("3. Exit")
 
     option = int(input("Enter the option you want to choose :: "))
     if option == 1:

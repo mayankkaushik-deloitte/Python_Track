@@ -4,9 +4,6 @@ from functools import reduce
 class FRZ:
     def __init__(self):
         pass
-    def fun(self):
-        x
-
     def func(self,x):
         return -x if x < 0 else x
     def first_problem(self):

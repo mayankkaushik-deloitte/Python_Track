@@ -1,1 +1,1 @@
-Mayank,123,Admin
+admin,password

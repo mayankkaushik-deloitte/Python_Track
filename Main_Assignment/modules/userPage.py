@@ -31,6 +31,11 @@ class UserPage:
             if len(self.bookings[title]) == 0: self.bookings.pop(title)
             print("Cancellation successful")
 
+    def show_timings(self, title: str):
+        res = list(self.bookings[title].keys())
+        for i in range(len(res)):
+            print(f"{i + 1}. {res[i]}")
+        return res
     def book_show(self, movie: Movie, timing: str, seats: int):
         if movie.time_slot[timing] >= seats:
             movie.time_slot[timing] -= seats
@@ -41,11 +46,21 @@ class UserPage:
                 else:
                     self.bookings[title][timing] = seats
             else:
-                self.bookings[title] = {title: seats}
+                self.bookings[title] = {timing: seats}
             print(seats, "seats have been booked!")
         else:
             print("Enough seats are not available!")
 
+    def give_user_rating(self, rating: int, movie: Movie):
+        rating = max(1, rating)
+        rating = min(10, rating)
+        title = movie.movie_details['title']
+        if title not in self.bookings:
+            print("You haven't watch the movie yet")
+            return
+        movie.add_user_rating(rating)
+        print("User rating added")
     def show_booking_details(self):
         for k, v in self.bookings.items():
             print(f"{k} => {v}")
+

@@ -16,8 +16,14 @@ def getMins(s: str, foundHr: bool) -> int:
 
 class Admin:
     def __init__(self):
-        self.username = "admin"
-        self.password = "password"
+        # with open("C:\\Users\\mayakaushik\\Python Track\\Main_Assignment\\data\\test.txt",'r') as file:
+        #     for line in file.readlines():
+        #         arr = line.split(',')
+        #         print(arr)
+        #         self.username = arr[0]
+        #         self.username = arr[1]
+        self.username = "mayank"
+        self.password = "123"
 
     def login(self, username, password) -> bool:
         return self.username == username and self.password == password
@@ -39,7 +45,10 @@ class Admin:
 
     def edit_movie(self, movies: MovieList):
         print("***** Admin Edit Movie *****")
+        lst = list(movies.mlist.keys())
         mv = self.get_movie()
+        for i in range(len(lst)):
+            print(f"{i + 1}. {lst[i]}")
         if mv.movie_details['title'] in movies.mlist.keys():
             movies.mlist[mv.movie_details['title']] = mv
             print("Update successful")
